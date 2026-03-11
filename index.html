@@ -2,133 +2,90 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>GJ / 後藤順平 Official Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GJ Official</title>
     <style>
         body {
-            background-color: #f0ede4;
-            color: #1a1a1a;
+            background-color: #f0ede4; color: #1a1a1a;
             font-family: "MS PMincho", "Hiragino Mincho ProN", serif;
-            margin: 0;
-            padding: 20px;
-            background-image: url('https://img.icons8.com/ios/100/000000/bonsai.png'); 
+            margin: 0; padding: 15px;
+            background-image: 
+                url('https://img.icons8.com/ios/40/000000/bonsai.png'),
+                url('https://img.icons8.com/ios/40/000000/fuji-mountain.png'),
+                url('https://img.icons8.com/ios/40/000000/sushi.png'),
+                url('https://img.icons8.com/ios/40/000000/kabuki.png'),
+                url('https://img.icons8.com/ios/40/000000/pagoda.png');
             background-repeat: no-repeat;
-            background-position: bottom right;
+            background-position: bottom right, top left, top right, bottom left, 10% 80%;
             background-attachment: fixed;
         }
-        .container {
-            width: 95%;
-            max-width: 900px;
-            margin: auto;
-            border: 3px double #333;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 20px;
+        .container { width: 100%; max-width: 900px; margin: auto; border: 3px double #333; background: rgba(255,255,255,0.9); padding: 15px; box-sizing: border-box; }
+        h1 { font-size: 22px; border-bottom: 2px solid #333; text-align: center; padding-bottom: 10px; letter-spacing: 5px; }
+        .layout { display: flex; flex-direction: column; } /* スマホ重視で縦並び */
+        @media (min-width: 768px) { .layout { flex-direction: row; } }
+        
+        .sidebar { flex: 1; border-bottom: 1px solid #333; padding-bottom: 20px; text-align: center; }
+        @media (min-width: 768px) { .sidebar { max-width: 250px; border-bottom: none; border-right: 1px solid #333; padding-right: 20px; text-align: left; } }
+        
+        .main-content { flex: 2; padding: 0; }
+        @media (min-width: 768px) { .main-content { padding-left: 20px; } }
+        
+        .profile-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; border: 1px solid #333; margin: 10px auto; }
+        
+        /* スワイプギャラリー設定 */
+        .gallery-container {
+            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
+            gap: 10px; padding: 10px 0; scrollbar-width: none;
         }
-        table { width: 100%; border-collapse: collapse; }
-        .sidebar {
-            width: 250px;
-            vertical-align: top;
-            border-right: 1px solid #333;
-            padding-right: 20px;
+        .gallery-container::-webkit-scrollbar { display: none; }
+        .gallery-item {
+            flex: 0 0 80%; scroll-snap-align: center;
+            border: 1px solid #999; background: #fff; padding: 5px;
         }
-        .main-content {
-            padding-left: 20px;
-            vertical-align: top;
-        }
-        .profile-img, .recent-img {
-            width: 100%;
-            border: 1px solid #333;
-            margin-bottom: 5px;
-        }
-        /* 最近の画像枠のスタイル */
-        .recent-photo-area {
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px dashed #666;
-            background: #fff;
-            text-align: center;
-        }
-        .recent-caption {
-            font-size: 0.8em;
-            color: #333;
-            line-height: 1.4;
-        }
-        .lang-en {
-            font-style: italic;
-            color: #555;
-            font-size: 0.85em;
-            display: block;
-        }
-        h1 { font-size: 26px; border-bottom: 2px solid #333; text-align: center; padding-bottom: 10px; }
-        h2 { font-size: 18px; background: #004400; color: #fff; padding: 5px 10px; margin-top: 30px; }
-        .counter { background: #333; color: #fff; padding: 2px 8px; font-weight: bold; font-family: monospace; }
-        .box { border: 1px solid #999; padding: 10px; background: #fff; margin-bottom: 10px; }
+        .gallery-item img { width: 100%; height: 200px; object-fit: cover; }
+        
+        h2 { font-size: 16px; background: #004400; color: #fff; padding: 5px 10px; margin-top: 20px; }
+        .box { border: 1px solid #999; padding: 10px; background: #fff; margin-bottom: 10px; font-size: 0.9em; }
+        .ai-note { font-size: 0.6em; color: #d9534f; border: 1px solid #d9534f; padding: 1px 3px; }
     </style>
 </head>
 <body>
-
 <div class="container">
-    <h1>後藤 順平 (GJ) OFFICIAL SITE</h1>
-
-    <table>
-        <tr>
-            <td class="sidebar">
-                <img src="profile.jpg" alt="GJ" class="profile-img">
-                <p><strong>後藤 順平 (GJ)</strong><br>
-                <span class="lang-en">Junpei Goto</span></p>
-                
-                <p>訪問者数：<span class="counter">000088219</span><br>
-                <span class="lang-en">Counter</span></p>
-
-                <hr>
-
-                <p><strong>【一言】</strong><br>
-                「静寂の中にこそ、真実がある。」<br>
-                <span class="lang-en">"Truth lies in silence."</span></p>
-
-                <div class="recent-photo-area">
-                    <p style="font-size: 0.8em; font-weight: bold; margin-bottom: 5px;">【最近の画像 / Recent Photo】</p>
-                    <img src="recent.jpg" alt="Recent Activity" class="recent-img">
-                    <p class="recent-caption">
-                        道端で見つけた気になる石。<br>
-                        <span class="lang-en">A curious stone found on the roadside.</span>
-                    </p>
-                </div>
-            </td>
-
-            <td class="main-content">
-                <h2>後藤順平 動静 <span style="font-size: 0.7em;">(GJ Movements)</span></h2>
-                <div class="box">
-                    <strong>3月8日（日）</strong><br>
-                    09:00　都内の自宅にて盆栽の手入れ。<br>
-                    <span class="lang-en">09:00 Pruning bonsai at his Tokyo residence.</span><br><br>
-                    13:00　茶室にてAIとの戦略会議。<br>
-                    <span class="lang-en">13:00 Strategic meeting with AI in the tea room.</span><br><br>
-                    16:00　近所のスーパーへ視察（実地調査）。<br>
-                    <span class="lang-en">16:00 Field inspection at a local supermarket.</span>
-                </div>
-
-                <h2>プレスリリース <span style="font-size: 0.7em;">(Press Release)</span></h2>
-                <div class="box">
-                    <ul>
-                        <li>2026.03.08：和風デザインの採用を閣議決定。<br>
-                        <span class="lang-en">Adopted traditional Japanese design.</span></li>
-                        <li>2026.02.01：世界進出に向けた「GJ構想」を発表。<br>
-                        <span class="lang-en">Announced "GJ Vision" for global expansion.</span></li>
-                    </ul>
-                </div>
-
-                <p style="font-size: 0.8em; margin-top: 30px;">
-                    ※お仕事の依頼は書面にてお願いいたします。<br>
-                    <span class="lang-en">For business inquiries, please contact us in writing.</span>
-                </p>
-            </td>
-        </tr>
-    </table>
-
-    <p style="text-align: center; font-size: 11px; margin-top: 50px; border-top: 1px solid #ccc; padding-top: 10px;">
-        Copyright &copy; GJ Office / Junpei Goto. All Rights Reserved.
-    </p>
+    <h1>GJ OFFICIAL</h1>
+    <div class="layout">
+        <div class="sidebar">
+            <img src="profile.jpg" class="profile-img">
+            <p><strong>個人識別：GJ</strong><br><span style="font-size:0.8em; font-style:italic; color:#555;">Identifier: GJ</span></p>
+            <p>訪問者：<br><img src="https://www.cutycounter.com/hits.php?id=gjump2001&nd=8&style=1" border="0"></p>
+            <hr>
+            <p><strong>【本日のAI名言】</strong><br>
+            「Wi-Fiが切れた時、人は初めて自分の影と対話する。」<br>
+            <span class="ai-note">※AI生成</span></p>
+        </div>
+        <div class="main-content">
+            <h2>本日の動き <span style="font-size:0.7em;">(Movements)</span></h2>
+            <div class="box">
+                <strong>2026年3月12日</strong><br>
+                01:00 公開設定の「main」を確定し、一筋の光を見る。<br>
+                10:00 独自通貨「ゴトーくん」の概念を深掘り。
+            </div>
+            <h2>プレスリリース <span style="font-size:0.7em;">(Release)</span></h2>
+            <div class="box">
+                <ul>
+                    <li>独自トークン「ゴトーくん(GOTO)」ついに発行。</li>
+                    <li>Silverman Trumpet 設立準備開始。</li>
+                </ul>
+            </div>
+            <h2>最近の画像 <span style="font-size:0.7em;">(Gallery: Swipe!)</span></h2>
+            <div class="gallery-container">
+                <div class="gallery-item"><img src="recent1.jpg"><p style="text-align:center;font-size:0.7em;">考察中の石</p></div>
+                <div class="gallery-item"><img src="recent2.jpg"><p style="text-align:center;font-size:0.7em;">朝の光</p></div>
+                <div class="gallery-item"><img src="recent3.jpg"><p style="text-align:center;font-size:0.7em;">端末の影</p></div>
+                <div class="gallery-item"><img src="recent4.jpg"><p style="text-align:center;font-size:0.7em;">未確認飛行物体?</p></div>
+                <div class="gallery-item"><img src="recent5.jpg"><p style="text-align:center;font-size:0.7em;">静寂</p></div>
+            </div>
+        </div>
+    </div>
 </div>
-
 </body>
 </html>
